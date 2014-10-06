@@ -21,5 +21,10 @@
   "bugs": {
     "url": "https://github.com/Resonance1584/space-isnt-fun/issues"
   },
-  "homepage": "https://github.com/Resonance1584/space-isnt-fun"
+  "homepage": "https://github.com/Resonance1584/space-isnt-fun",
+  "dependencies": {
+    "readline-sync": "0.4.5",
+    "chalk": "0.5.1",
+    "envoodoo": "2.0.1"
+  }
 }
