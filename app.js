@@ -31,7 +31,7 @@ while (input !== 'exit') {
 
           var system = galaxy[i][j];
           scannedSystems[system.name] = system;
-          if (i !== player.x && j !== player.y) {
+          if (i !== player.x || j !== player.y) {
             var distance = math2d.distance([player.x,player.y], [i,j]);
             if (distance < scanDistance) {
               var systemDescription = system.name + ' - ' + systemGenerator.starClasses[system.starClass].name + ' - ' + distance + ' light years away';
