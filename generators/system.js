@@ -1,5 +1,7 @@
 'use strict';
 
+var planetGenerator = require('./planet');
+
 var starClasses = {
   'O': {
     name: 'Class O Ultraviolet Star',
@@ -93,17 +95,49 @@ function uniqueRandName() {
   return name;
 }
 
-var systems = [];
+// var systems = [];
+
+function createPlanets() {
+  var planets = [];
+  //TODO:
+  //Use realistic frequencies from star type
+  switch (Math.floor(Math.random() * 10)) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+      break;
+    case 4:
+    case 5:
+    case 6:
+      planets.push(planetGenerator.createPlanet());
+      break;
+    case 7:
+    case 8:
+      planets.push(planetGenerator.createPlanet());
+      planets.push(planetGenerator.createPlanet());
+      break;
+    case 9:
+      planets.push(planetGenerator.createPlanet());
+      planets.push(planetGenerator.createPlanet());
+      planets.push(planetGenerator.createPlanet());
+  }
+  planets.sort(function (a, b) {
+    return a.orbitalRadius - b.orbitalRadius;
+  })
+  return planets;
+}
 
 function createSystem(x,y) {
-  systems.push([x,y]);
+  // systems.push([x,y]);
   var starClass = randStarClass();
   return {
     x: x,
     y: y,
     color: randStarColor(starClass),
     name: uniqueRandName(),
-    starClass: starClass
+    starClass: starClass,
+    planets: createPlanets()
   };
 }
 
